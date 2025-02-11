@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/table.css') }}">
+    <title>Spotify API SQL DB</title>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="topnav">
+        {% for item in nav.top %}
+        <a class="{{ 'active' if item.is_active else '' }}" href="{{ item.url }}">{{ item.label }}</a>
+        {% endfor %}
+    </div>
+
+    <h1>Favorite Song</h1>
+   
+    <table id="table1">
+        <tr>
+            <th>SongName</th>
+            <th>Song Aritist</th>
+        </tr>
+
+        <!-- Loop through and display all rows from the SQL query -->
+        {% for row in records %}
+        <tr>
+            <td>{{ row.SongName }}</td>
+            <td>{{ row.SongAritist }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
