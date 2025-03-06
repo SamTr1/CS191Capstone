@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const DropDown = () => {
     const [isExpanded, setIsExpanded] = React.useState(false);
@@ -13,6 +13,14 @@ const DropDown = () => {
         { id: "6", label: "Restaurants", amount: "$80" },
         { id: "7", label: "Coffee", amount: "$40" },
         { id: "8", label: "Snacks", amount: "$30" },
+        { id: "9", label: "Groceries", amount: "$120" },
+        { id: "10", label: "Restaurants", amount: "$80" },
+        { id: "11", label: "Coffee", amount: "$40" },
+        { id: "12", label: "Snacks", amount: "$30" },
+        { id: "13", label: "Groceries", amount: "$120" },
+        { id: "14", label: "Restaurants", amount: "$80" },
+        { id: "15", label: "Coffee", amount: "$40" },
+        { id: "16", label: "Snacks", amount: "$30" }
     ];
 
     const firstItem = budgetDetails[0];
@@ -20,7 +28,7 @@ const DropDown = () => {
 
 
     return (
-        <View>
+        <View style={styles.containerBase}>
             <TouchableOpacity
                 style={styles.container}
                 onPress={() => setIsExpanded(!isExpanded)}
@@ -42,6 +50,7 @@ const DropDown = () => {
                     </View>
                 )}
                 style={styles.dropdown}
+                scrollEnabled={true}
                 />
             )}
             </View>
@@ -50,6 +59,11 @@ const DropDown = () => {
 
 const styles = StyleSheet.create({
     container: {
+        width: Dimensions.get("window").width * 0.60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -58,6 +72,7 @@ const styles = StyleSheet.create({
         color: '#333',
     },
     listItem: {
+        width: Dimensions.get("window").width * 0.60,
         flexDirection: "row",
         justifyContent: "space-between",
         paddingVertical: 8,
@@ -79,15 +94,24 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 10,
         maxHeight: 150,
+        flex: 1,
+        overflow: "hidden",
         flexDirection: "row",
         flex: 1,
         overflow: "scroll",
-
     },
     dropBox: {
         backgroundColor: "green",
         padding: 10,
         borderRadius: 5,
+    },
+    containerBase: {
+        // width: Dimensions.get("window").width * 0.50,
+        backgroundColor: "lightgreen",
+        alignItems: "center",
+        padding: 10,
+        borderRadius: 15,
+        maxHeight: 125,
     },
 });
 
