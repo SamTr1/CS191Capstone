@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     text: {
         fontSize: 18,
@@ -94,6 +96,9 @@ const styles = StyleSheet.create({
         maxHeight: 150,
         flex: 1,
         overflow: "hidden",
+        flexDirection: "row",
+        flex: 1,
+        overflow: "scroll",
     },
     dropBox: {
         backgroundColor: "green",
