@@ -1,15 +1,27 @@
-import { Text, View } from "react-native";
+import React from "react";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+
+import MidBanner from "./MidBanner";
+import SwipeModalExample from "./SwipeModalExample";
+import TopBanner from "./TopBanner";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Hello World!</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: 'lightgrey',
+          height: "100%",
+        }}
+      >
+        <TopBanner />
+        <MidBanner />
+        <SwipeModalExample />
+      
+
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
