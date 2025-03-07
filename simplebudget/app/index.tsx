@@ -1,9 +1,9 @@
 import React from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import MidBanner from "./MidBanner";
-import SwipeModalExample from "./SwipeModalExample";
-import TopBanner from "./TopBanner";
+import SwipeModalExample from "./pages/cat/SwipeModalExample";
+import MidBanner from "./pages/mid/MidBanner";
+import TopBanner from "./pages/top/TopBanner";
 
 export default function Index() {
   return (
@@ -20,7 +20,6 @@ export default function Index() {
         <MidBanner />
         <SwipeModalExample />
       
-
       </SafeAreaView>
     </SafeAreaProvider>
   );
