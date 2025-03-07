@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import { GestureHandlerGestureEvent, GestureHandlerRootView, PanGestureHandler, State } from "react-native-gesture-handler";
-import MyFirst from "./comps/catcomps/MyFirst";
+import MyFirst from "../components/MyFirst";
 
 interface ModalData {
   id: number;

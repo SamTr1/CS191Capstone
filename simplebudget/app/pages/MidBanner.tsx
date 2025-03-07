@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
-import Add from './Add';
-import Mid from './Mid';
+import Add from '../components/Add';
+import Mid from '../components/Mid';
 
 const MidBanner = () => {
     
