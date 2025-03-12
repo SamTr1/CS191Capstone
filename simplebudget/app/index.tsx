@@ -1,9 +1,9 @@
 import React from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import MidBanner from "./MidBanner";
-import SwipeModalExample from "./SwipeModalExample";
-import TopBanner from "./TopBanner";
+import SwipeModalExample from "./pages/SwipeModalExample";
+import MidBanner from "./pages/MidBanner";
+import TopBanner from "./pages/TopBanner";
 
 export default function Index() {
   return (
@@ -20,26 +20,7 @@ export default function Index() {
         <MidBanner />
         <SwipeModalExample />
       
-
       </SafeAreaView>
     </SafeAreaProvider>
-=======
-import { Text } from "react-native";
-import { SafeAreaView } from 'react-native-safe-area-context';
-import ItemBox from "./ItemBox";
-
-
-export default function Index() {
-  return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Hello World!</Text>
-      <ItemBox />
-    </SafeAreaView>
   );
 }

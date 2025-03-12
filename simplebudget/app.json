@@ -9,13 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.simplebudget"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.simplebudget"
     },
     "web": {
       "bundler": "metro",
@@ -33,7 +35,6 @@
           "backgroundColor": "#ffffff"
         }
       ]
-
     ],
     "experiments": {
       "typedRoutes": true
