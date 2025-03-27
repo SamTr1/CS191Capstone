@@ -9,13 +9,13 @@ export default function Page() {
 	const user = auth().currentUser;
 	return (
 		<SafeAreaProvider>
-		  <SafeAreaView style={{ flex: 1 }}>
-			<BudgetContextProvider>
-			  <BudgetApp />
-			  {/* <Settings /> */}
-			  {/* <Profile /> */}
-			</BudgetContextProvider>
-		  </SafeAreaView>
+			<SafeAreaView style={{ flex: 1 }}>
+				<BudgetContextProvider>
+					<BudgetApp />
+			  		{/* <Settings /> */}
+			  		{/* <Profile /> */}
+				</BudgetContextProvider>
+			</SafeAreaView>
 		</SafeAreaProvider>
-	  );
+	);
 };
