@@ -1,33 +1,21 @@
-import { View, Text, Button, SafeAreaView } from 'react-native';
 import auth from '@react-native-firebase/auth';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import MidBanner from './MidBanner';
 import React from 'react';
-import SwipeModalExample from '../pages/SwipeModalExample';
+import { SafeAreaView } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { BudgetContextProvider } from '../context/BudgetContext';
+import BudgetApp from '../pages/BudgetApp';
 
 export default function Page() {
 	const user = auth().currentUser;
-
 	return (
-		<>
-			<SafeAreaProvider>
-			<SafeAreaView
-				style={{
-				justifyContent: "center",
-				alignItems: "center",
-				backgroundColor: 'lightgrey',
-				height: "100%",
-				}}
-			>
-				{/* <TopBanner /> */}
-				<MidBanner />
-				<SwipeModalExample/>
-			
-			</SafeAreaView>
-			</SafeAreaProvider>		
-			<Button title="Sign out" onPress={() => auth().signOut()} />
-
-		</>
-
+		<SafeAreaProvider>
+		  <SafeAreaView style={{ flex: 1 }}>
+			<BudgetContextProvider>
+			  <BudgetApp />
+			  {/* <Settings /> */}
+			  {/* <Profile /> */}
+			</BudgetContextProvider>
+		  </SafeAreaView>
+		</SafeAreaProvider>
 	  );
 };
