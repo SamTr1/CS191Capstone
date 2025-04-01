@@ -1,6 +1,6 @@
 import auth from '@react-native-firebase/auth';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { Button, SafeAreaView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { BudgetContextProvider } from '../context/BudgetContext';
 import BudgetApp from '../pages/BudgetApp';
@@ -16,6 +16,7 @@ export default function Page() {
 			  		{/* <Profile /> */}
 				</BudgetContextProvider>
 			</SafeAreaView>
+			<Button title='Sign Out'  onPress={()=> auth().signOut()}/>
 		</SafeAreaProvider>
 	);
 };
