@@ -1,5 +1,4 @@
 import auth from '@react-native-firebase/auth';
-import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { BudgetContextProvider } from '../context/BudgetContext';

@@ -33,7 +33,7 @@ export const BudgetContextProvider: React.FC<{ children: React.ReactNode }> = ({
         }
     };
 
-    const [cashOnHand, setCashOnHand] = useState<number>(50);
+    const [cashOnHand, setCashOnHand] = useState<number>(5000);
     const [needPercent, setNeedPercent] = useState<number>(50);
     const [wantPercent, setWantPercent] = useState<number>(30);
     const [savingPercent, setSavingPercent] = useState<number>(20);
@@ -43,7 +43,7 @@ export const BudgetContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
     useEffect(() => {
         const loadSettings = async () => {
-            setCashOnHand(await getInitialValue("cashOnHand", 50));
+            setCashOnHand(await getInitialValue("cashOnHand", 5000));
             setNeedPercent(await getInitialValue("needPercent", 50));
             setWantPercent(await getInitialValue("wantPercent", 30));
             setSavingPercent(await getInitialValue("savingPercent", 20));
