@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import {
-	Text,
-	View,
-	StyleSheet,
-	KeyboardAvoidingView,
-	TextInput,
-	Button,
-	ActivityIndicator
-} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { FirebaseError } from 'firebase/app';
+import { useState } from 'react';
+import {
+	ActivityIndicator,
+	Button,
+	KeyboardAvoidingView,
+	StyleSheet,
+	TextInput,
+	View
+} from 'react-native';
 
 export default function Index() {
 	const [email, setEmail] = useState('');

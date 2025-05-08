@@ -1,6 +1,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
+type BudgetCategory = 'Need' | 'Want' | 'Saving';
+
+interface BudgetItem {
+    id: string;
+    label: string;
+    amount: number;
+    category: BudgetCategory;
+}
+
 interface BudgetSettings {
     cashOnHand: number;
     needPercent: number;
@@ -9,7 +18,10 @@ interface BudgetSettings {
     totalIncome: number;
     taxPercentage: number;
     user: string;
-    
+
+    budgetItems: Record<string, BudgetItem>;
+    addBudgetItem: (category?: BudgetCategory) => void;
+
     setCashOnHand: (value: number) => void;
     setNeedPercent: (value: number) => void;
     setWantPercent: (value: number) => void;
@@ -22,7 +34,6 @@ interface BudgetSettings {
 const BudgetContext = createContext<BudgetSettings | undefined>(undefined);
 
 export const BudgetContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-
     const getInitialValue = async <T extends number | string>(key: string, defaultValue: T): Promise<T> => {
         try {
             const saved = await AsyncStorage.getItem(key);
@@ -40,6 +51,21 @@ export const BudgetContextProvider: React.FC<{ children: React.ReactNode }> = ({
     const [totalIncome, setTotalIncome] = useState<number>(1250);
     const [taxPercentage, setTaxPercentage] = useState<number>(10);
     const [user, setUser] = useState<string>("");
+    const [budgetItems, setBudgetItems] = useState<Record<string, BudgetItem>>({});
+
+    const addBudgetItem = (category: BudgetCategory = 'Need') => {
+        const id = Date.now().toString();
+        const newItem: BudgetItem = {
+            id,
+            label: `New ${category} Item`,
+            amount: 0,
+            category
+        };
+        setBudgetItems(prev => ({
+            ...prev,
+            [id]: newItem
+        }));
+    };
 
     useEffect(() => {
         const loadSettings = async () => {
@@ -54,33 +80,13 @@ export const BudgetContextProvider: React.FC<{ children: React.ReactNode }> = ({
         loadSettings();
     }, []);
 
-    useEffect(() => {
-        AsyncStorage.setItem("cashOnHand", JSON.stringify(cashOnHand));
-    }, [cashOnHand]);
-
-    useEffect(() => {
-        AsyncStorage.setItem("needPercent", JSON.stringify(needPercent));
-    }, [needPercent]);
-
-    useEffect(() => {
-        AsyncStorage.setItem("wantPercent", JSON.stringify(wantPercent));
-    }, [wantPercent]);
-
-    useEffect(() => {
-        AsyncStorage.setItem("savingPercent", JSON.stringify(savingPercent));
-    }, [savingPercent]);
-
-    useEffect(() => {
-        AsyncStorage.setItem("totalIncome", JSON.stringify(totalIncome));
-    }, [totalIncome]);
-
-    useEffect(() => {
-        AsyncStorage.setItem("taxPercentage", JSON.stringify(taxPercentage));
-    }, [taxPercentage]);
-
-    useEffect(() => {
-        AsyncStorage.setItem("user", JSON.stringify(user));
-    }, [user]);
+    useEffect(() => { AsyncStorage.setItem("cashOnHand", JSON.stringify(cashOnHand)); }, [cashOnHand]);
+    useEffect(() => { AsyncStorage.setItem("needPercent", JSON.stringify(needPercent)); }, [needPercent]);
+    useEffect(() => { AsyncStorage.setItem("wantPercent", JSON.stringify(wantPercent)); }, [wantPercent]);
+    useEffect(() => { AsyncStorage.setItem("savingPercent", JSON.stringify(savingPercent)); }, [savingPercent]);
+    useEffect(() => { AsyncStorage.setItem("totalIncome", JSON.stringify(totalIncome)); }, [totalIncome]);
+    useEffect(() => { AsyncStorage.setItem("taxPercentage", JSON.stringify(taxPercentage)); }, [taxPercentage]);
+    useEffect(() => { AsyncStorage.setItem("user", JSON.stringify(user)); }, [user]);
 
     return (
         <BudgetContext.Provider value={{
@@ -91,6 +97,8 @@ export const BudgetContextProvider: React.FC<{ children: React.ReactNode }> = ({
             totalIncome,
             taxPercentage,
             user,
+            budgetItems,
+            addBudgetItem,
             setCashOnHand,
             setNeedPercent,
             setWantPercent,
