@@ -1,5 +1,14 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import React, { useEffect, useRef } from 'react';
 import { Animated, Modal, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+
+
+type RootDrawerParamList = {
+    Profile: undefined;
+    Budget: undefined;
+    Settings: undefined;
+};
+
 
 interface Props {
     visible: boolean;
@@ -8,6 +17,7 @@ interface Props {
 
 const ProfileDrawer: React.FC<Props> = ({ visible, onClose }) => {
     const slideAnim = useRef(new Animated.Value(300)).current;
+    const navigation = useNavigation<NavigationProp<RootDrawerParamList>>();
 
     useEffect(() => {
         if (visible) {
@@ -34,7 +44,7 @@ const ProfileDrawer: React.FC<Props> = ({ visible, onClose }) => {
             <TouchableOpacity style={styles.option} onPress={() => console.log('Profile')}>
                 <Text style={styles.optionText}>👤 View Profile</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.option} onPress={() => console.log('Settings')}>
+            <TouchableOpacity style={styles.option} onPress={() => navigation.navigate("Settings")}>
                 <Text style={styles.optionText}>⚙️ Settings</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.option} onPress={() => console.log('Stats')}>

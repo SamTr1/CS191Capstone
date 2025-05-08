@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { AddButton } from '../components/AddButton';
 import BudgetItem from '../components/BudgetItem';
 import CashOnHand from '../components/CashOnHand';
 import Header from '../components/Header';
@@ -8,6 +9,7 @@ import { BudgetContextProvider, useBudgetContext } from '../context/BudgetContex
 
 
 const BudgetApp: React.FC = () => {
+    
 
     const { needPercent, wantPercent, savingPercent, totalIncome } = useBudgetContext();
     
@@ -23,13 +25,14 @@ const BudgetApp: React.FC = () => {
         <SafeAreaProvider>
             <BudgetContextProvider>
                 <View style={styles.container}>
-                    <Header />
+                    <Header/>
                     <CashOnHand />
                     <ScrollView style={styles.content}>
                         {budgetData.map((item, index) => (
                         <BudgetItem key={index} label={item.label} percentage={item.percentage} amount={item.amount} />
                         ))}
                     </ScrollView>
+                    <AddButton />
                 </View>
 
             </BudgetContextProvider>

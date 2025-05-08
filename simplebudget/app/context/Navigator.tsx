@@ -1,24 +1,20 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
-import ProfileDrawer from "../components/ProfileDrawer";
-import BudgetScreen from "../pages/BudgetApp";
-import Profile from "../pages/Profile";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+
+import BudgetApp from '../pages/BudgetApp';
+import Profile from '../pages/Profile';
+import Settings from '../pages/Settings';
 
 const Drawer = createDrawerNavigator();
 
 const Navigator = () => {
-
-return (
-    <NavigationContainer>
-        <Drawer.Navigator
-            initialRouteName="Home"
-            drawerContent={(props) => <ProfileDrawer visible={false} onClose={function (): void {
-                throw new Error("Function not implemented.");
-            } } {...props} />} // Custom side modal
-        >
-            <Drawer.Screen name="Home" component={Profile} />
-            <Drawer.Screen name="Budget" component={BudgetScreen} />
+    return (
+        <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Budget">
+            <Drawer.Screen name="Profile" component={Profile} />
+            <Drawer.Screen name="Budget" component={BudgetApp} />
+            <Drawer.Screen name="Settings" component={Settings} />
         </Drawer.Navigator>
         </NavigationContainer>
     );
