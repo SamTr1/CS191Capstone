@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  body {
+    background-color: #f3f4f6;
+    color: #333;
+    padding: 1rem;
+  }
+  
+  /* Header */
+  .app-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .app-header h1 {
+    font-size: 2.0rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .app-header .cash {
+    font-size: 1rem;
+    background-color: #e0f7e9;
+    padding: 0.5rem;
+    border-radius: 6px;
+    color: #1a4731;
+  }
+  
+  /* Card Style */
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-content input[type="text"],
+  .card-content input[type="number"] {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  /* Buttons */
+  .card-content button {
+    padding: 0.6rem 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-content button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* List Entries */
+  .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem;
+    background-color: #f9f9f9;
+    margin-top: 0.5rem;
+    border-left: 4px solid #4CAF50;
+    border-radius: 6px;
+  }
+  
+  .label {
+    font-weight: 500;
+  }
+  
+  .amount {
+    font-weight: bold;
+  }
+  
+
+
+
+
+
+
+  /* Light/Dark Mode Variables */
+:root {
+  --bg-color: #f3f4f6;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --header-bg: #4CAF50;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #070707;
+  --card-bg: #1e1e1e;
+  --header-bg: #2f8119;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Override card and header colors */
+.card {
+  background-color: var(--card-bg);
+}
+
+.app-header {
+  background-color: var(--header-bg);
+}
+
+/* Settings Button */
+.settings-menu {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.settings-menu button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.settings-menu button:hover {
+  background-color: #3e8e41;
+}
