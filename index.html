@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Budget App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="indexstyle.css" />
+  <style>
+    .toggle-content {
+      display: none;
+    }
+    .card.active .toggle-content {
+      display: block;
+    }
+    .card-header {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .arrow {
+      font-size: 1rem;
+      transition: transform 0.10s ease;
+    }
+    .card.active .arrow {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-menu">
+    <button onclick="toggleDarkMode()" title="Toggle Dark/Light Mode">
+      💡
+    </button>
+  </div>
+  
+  <header class="app-header">
+    <h1>The Budget Application</h1>
+   
+  </header>
+
+  <main class="app-body">
+    <section class="card" id="incomeCard">
+      <div class="card-header" onclick="toggleSection('incomeCard')">
+        <span>Total Planned Income</span>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span id="incomeValue">$0</span>
+          <span class="arrow" id="incomeArrow">&#9660;</span>
+        </div>
+      </div>
+      <div class="card-content toggle-content">
+        <input type="text" id="incomeDesc" placeholder="Income Description" />
+        <input type="number" id="incomeInput" placeholder="Add Income Amount" />
+        <button onclick="addIncome()">+</button>
+        <div id="incomeList"></div>
+      </div>
+    </section>
+
+    <section class="card" id="expenseCard">
+      <div class="card-header" onclick="toggleSection('expenseCard')">
+        <span>Total Expenses</span>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span id="expenseValue">$0</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+      </div>
+      <div class="card-content toggle-content">
+        <input type="text" id="expenseDesc" placeholder="Expense Description" />
+        <input type="number" id="expenseInput" placeholder="Expense Amount" />
+        <button onclick="addExpense()">+</button>
+        <div id="expenseList"></div>
+      </div>
+    </section>
+
+    <section class="card" id="needsCard">
+      <div class="card-header" onclick="toggleSection('needsCard')">
+        <span>Needs</span>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span id="needsValue">$0</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+      </div>
+      <div class="card-content toggle-content">
+        <input type="text" id="needsDesc" placeholder="Needs Description" />
+        <input type="number" id="needsInput" placeholder="Amount" />
+        <button onclick="addNeeds()">+</button>
+        <div id="needsList"></div>
+      </div>
+    </section>
+
+    <section class="card" id="wantsCard">
+      <div class="card-header" onclick="toggleSection('wantsCard')">
+        <span>Wants</span>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span id="wantsValue">$0</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+      </div>
+      <div class="card-content toggle-content">
+        <input type="text" id="wantsDesc" placeholder="Wants Description" />
+        <input type="number" id="wantsInput" placeholder="Amount" />
+        <button onclick="addWants()">+</button>
+        <div id="wantsList"></div>
+      </div>
+    </section>
+
+    <section class="card" id="savingsCard">
+      <div class="card-header" onclick="toggleSection('savingsCard')">
+        <span>Savings</span>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span id="savingsValue">$0</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+      </div>
+      <div class="card-content toggle-content">
+        <input type="text" id="savingsDesc" placeholder="Savings Description" />
+        <input type="number" id="savingsInput" placeholder="Amount" />
+        <button onclick="addSavings()">+</button>
+        <div id="savingsList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
