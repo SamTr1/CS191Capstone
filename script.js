@@ -1,8 +1,8 @@
-let income = 1250;
+let income = 0;
 let expense = 0;
-let needs = 625;
-let wants = 375;
-let savings = 250;
+let needs = 0;
+let wants = 0;
+let savings = 0;
 
 function toggleSection(id) {
   const card = document.getElementById(id);
